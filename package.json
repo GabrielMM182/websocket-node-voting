@@ -4,7 +4,7 @@
   "description": "Estudo relembrando conceitos de mongo, websockets, redis,  mongodb e docker",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/server.js",
+    "start": "node ./src/abc.js",
     "dev": "nodemon ./src/server.js"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/GabrielMM182/websocket-node-voting#readme",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "ioredis": "^5.4.2",
     "mongoose": "^8.9.6",

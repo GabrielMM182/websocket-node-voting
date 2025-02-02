@@ -1,16 +1,22 @@
+
+
 const express = require("express");
 const mongoose = require("mongoose");
 const { WebSocketServer } = require("ws");
 const Redis = require("ioredis");
 const User = require("./models/User");
 const VoteHistory = require("./models/VoteHistory");
+const dotenv = require("dotenv");
+
+// Load environment variables from .env file
+dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Conectar ao MongoDB
 mongoose
-  .connect("mongodb://localhost:27017/voting", {
+  .connect(process.env.MONGO_URI || "mongodb://localhost:27017/voting", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -18,8 +24,8 @@ mongoose
 
 // Criar conexão com Redis
 const redis = new Redis({
-  host: "localhost",
-  port: 6379,
+  host: process.env.REDIS_HOST || "localhost",
+  port: process.env.REDIS_PORT || 6379,
 });
 
 // Criando o servidor HTTP
