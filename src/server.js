@@ -1,5 +1,4 @@
-
-
+const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const { WebSocketServer } = require("ws");
@@ -13,6 +12,8 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+app.use(cors())
+
 
 // Conectar ao MongoDB
 mongoose
